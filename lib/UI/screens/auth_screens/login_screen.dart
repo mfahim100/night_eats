@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:night_eats/UI/screens/auth_screens/acount_verification_screen.dart';
 import 'package:night_eats/UI/screens/auth_screens/signup_screen.dart';
 import 'package:night_eats/UI/widgets/const_color_button.dart';
 import 'package:night_eats/UI/widgets/custom_button.dart';
@@ -37,7 +38,9 @@ class LoginScreen extends StatelessWidget {
                const PasswordTextField(text: 'Password', hintText: 'Enter Your Password',isPass: true,),
            
                SizedBox(height: 2.h,),
-               CustomButton(text: 'Login', onPressed: (){},color: ConstColors.blueColor,),
+               CustomButton(text: 'Login', onPressed: (){
+                 Get.to(const AccountVerificationScreen());
+               },color: ConstColors.blueColor,),
            
            
            

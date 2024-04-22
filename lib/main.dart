@@ -34,9 +34,9 @@ class MyApp extends StatelessWidget {
             // const ContactUsScreen()
             // const OurProductsScreen()
             // LocationScreen()
-            const OrderScreen()
+            // const OrderScreen()
             // const AccountVerificationScreen()
-            // const LoginScreen()
+            const LoginScreen()
         );
       },
 
