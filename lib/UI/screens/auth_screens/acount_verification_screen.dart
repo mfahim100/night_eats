@@ -1,29 +1,13 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:night_eats/UI/screens/home_screens/order_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../core/constants/const_colors.dart';
 
-class AccountVerificationScreen extends StatefulWidget {
+class AccountVerificationScreen extends StatelessWidget {
   const AccountVerificationScreen({super.key});
 
-  @override
-  State<AccountVerificationScreen> createState() => _AccountVerificationScreenState();
-}
-
-class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    loadScreen();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,10 +19,13 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
             child: Column(
               children: [
                 Container(
-                  height: 8.h,
+                  height: 10.h,
                   color:ConstColors.blueColor,
                   child: const Center(
-                    child: Image(image: AssetImage('assets/images/logo.png'),),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Image(image: AssetImage('assets/images/logo.png'),),
+                    ),
                   ),
                 ),
 
@@ -129,10 +116,5 @@ class _AccountVerificationScreenState extends State<AccountVerificationScreen> {
         ),
       ),
     );
-  }
-  void loadScreen() {
-    Timer(const Duration(seconds: 5), () {
-     Get.offAll(const OrderScreen());
-    });
   }
 }

@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/smart_management.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:night_eats/UI/screens/auth_screens/login_screen.dart';
-import 'package:night_eats/UI/screens/home_screens/condition_and_terms.dart';
-import 'package:night_eats/UI/screens/home_screens/contact_us_screen.dart';
-import 'package:night_eats/UI/screens/home_screens/location_screen.dart';
-import 'package:night_eats/UI/screens/home_screens/order_screen.dart';
-import 'package:night_eats/UI/screens/home_screens/our_products_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'core/utils/main_method.dart';
 
-import 'UI/screens/auth_screens/acount_verification_screen.dart';
-
-void main() {
+Future<void> main() async {
+  await MainMethod.init();
   runApp(const MyApp());
 }
 
@@ -21,27 +17,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(
-      builder: (context , orientation , screenType ) {
+      builder: (context, orientation, screenType) {
         return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            smartManagement: SmartManagement.full,
+            title: 'Night Eats',
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home:
-            // const ConditionAndTerms()
-            // const ContactUsScreen()
-            // const OurProductsScreen()
-            // LocationScreen()
-            // const OrderScreen()
-            // const AccountVerificationScreen()
-            const LoginScreen()
-        );
+            home: const LoginScreen());
       },
-
     );
   }
 }
-
-

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:night_eats/core/constants/const_text_styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../core/constants/const_colors.dart';
@@ -21,10 +21,7 @@ class ConstColorButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(05.w)
         ),
         child: Center(
-          child: Text(text,style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 17.sp,
-              fontWeight: FontWeight.bold),),
+          child: Text(text,style: ConstTextStyle.constColorTextButton,),
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:night_eats/core/constants/const_colors.dart';
+import 'package:night_eats/core/constants/const_text_styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -42,11 +43,7 @@ class CustomTextField extends StatelessWidget {
            alignment: Alignment.topLeft,
             child: Text(
               text,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 18.sp,
-                  decoration: TextDecoration.none),
+              style: ConstTextStyle.titleTextStyle,
             ),
           ),
           SizedBox(

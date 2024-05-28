@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:night_eats/UI/widgets/custom_textfield_phonenumber.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../core/constants/const_colors.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_textfield.dart';
 import '../../widgets/passwod_textfield.dart';
+import 'acount_verification_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -13,36 +16,77 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SizedBox(
-          height: 100.h,
-          width: 100.w,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Container(
-                  height: 8.h,
-                  color:ConstColors.blueColor,
-                  child: const Center(
-                    child: Image(image: AssetImage('assets/images/logo.png'),),
-                  ),
+        child: Column(
+          children: [    Container(
+            height: 10.h,
+            color: ConstColors.blueColor,
+            child: const Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Image(
+                  image: AssetImage('assets/images/logo.png'),
                 ),
-
-                CustomTextField(text: 'Name', hintText: 'Enter Your Name'),
-                CustomTextField(text: 'First Name', hintText: 'Enter Your First Name'),
-                CustomTextField(text: 'Email', hintText: 'Enter Your email'),
-                const PasswordTextField(text: 'Password', hintText: 'Enter Your Password',isPass: true,),
-                CustomTextField(text: 'Number and Street', hintText: 'Enter Number and Street'),
-                CustomTextField(text: 'Postal Code and city', hintText: 'Enter Postal Code and city'),
-                CustomTextField(text: 'Phone Number', hintText: 'Enter Phone Number'),
-                SizedBox(height: 1.h,),
-                CustomButton(text: 'Create Account', onPressed: (){},color: ConstColors.blueColor,),
-
-
-
-
-              ],
+              ),
             ),
           ),
+            SizedBox(
+              height: 83.h,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+
+
+                    SizedBox(
+                      height: 4.h,
+                    ),
+                    CustomTextField(text: 'Name', hintText: 'Enter Your Name'),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    CustomTextField(
+                        text: 'First Name', hintText: 'Enter Your First Name'),
+
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    CustomTextField(text: 'Email', hintText: 'Enter Your email'),
+                    SizedBox(
+                      height: 2.h,
+                    ),   const PasswordTextField(
+                      text: 'Password',
+                      hintText: 'Enter Your Password',
+                      isPass: true,
+                    ),
+                    SizedBox(
+                      height: 2.h,
+                    ),     CustomTextField(
+                        text: 'Number and Street',
+                        hintText: 'Enter Number and Street'),
+                    SizedBox(
+                      height: 2.h,
+                    ),  CustomTextField(
+                        text: 'Postal Code and city',
+                        hintText: 'Enter Postal Code and city'),
+                    SizedBox(
+                      height: 2.h,
+                    ),    CustomTextFieldPhoneNumber(
+                        text: 'Phone Number', hintText: 'Enter Phone Number'),
+                    SizedBox(
+                      height: 2.h,
+                    ),
+                    CustomButton(
+                      text: 'Create Account',
+                      onPressed: () => Get.to(const AccountVerificationScreen()),
+                      color: ConstColors.blueColor,
+                    ),
+                    SizedBox(
+                      height: 3.h,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
