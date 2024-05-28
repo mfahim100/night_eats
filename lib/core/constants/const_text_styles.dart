@@ -69,5 +69,18 @@ class ConstTextStyle{
      decoration: TextDecoration.none);
 
 
+  static var profileButton =  GoogleFonts.poppins(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.white
+  );
+
+
+  static var profileListTile =  GoogleFonts.poppins(
+      fontSize: 15.5.sp,
+      fontWeight: FontWeight.w500,
+      color: Colors.white
+  );
+
 
 }

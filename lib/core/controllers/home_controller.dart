@@ -17,4 +17,9 @@ class HomeController extends GetxController{
     }
   }
 
+  RxInt adminHomeTabIndex=0.obs;
+  setAdminHomeTabIndex(int val){
+    adminHomeTabIndex.value = val;
+  }
+
 }

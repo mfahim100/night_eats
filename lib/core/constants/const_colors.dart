@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class ConstColors {
 
 
@@ -7,4 +9,18 @@ class ConstColors {
   static var orangeColor = const Color(0xffffad1f);
 
 
+
+  // static const Color kPrimaryColor = Color(0xffB752F1);
+  static  Color? kPrimaryColor = blueColor;
+
+  static Color colorLabelColor= const Color(0xFF172CE0);
+  static Color? bottomNavigationBarBackgroundColor=kPrimaryColor ;
+  // static Color activeNavigationBarColor=AppTheme.colorOrange;
+  static Color activeNavigationBarColor= orangeColor;
+  static Color notActiveNavigationBarColor=Colors.white ;
+  static Color shadowNavigationBarColor=orangeColor;
+
 }
+
+
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/smart_management.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:night_eats/UI/screens/auth_screens/login_screen.dart';
+import 'package:night_eats/UI/screens/home_screens/admin_home_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'core/utils/main_method.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const LoginScreen());
+            home: const AdminHomeScreen());
       },
     );
   }
