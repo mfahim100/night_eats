@@ -5,8 +5,6 @@ class MainMethod{
   static Future<void> init () async {
 
     WidgetsFlutterBinding.ensureInitialized();
-
-
     await di.init();
   }
 }

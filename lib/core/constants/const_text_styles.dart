@@ -37,17 +37,17 @@ class ConstTextStyle{
         decoration: TextDecoration.none);
 
  static var titleTextStyle = GoogleFonts.poppins(
-     fontWeight: FontWeight.bold,
+     fontWeight: FontWeight.w600,
      color: Colors.black,
-     fontSize: 18.sp,
+     fontSize: 16.sp,
      decoration: TextDecoration.none);
 
 
 
  static var customButtonTextStyle =  GoogleFonts.poppins(
   color: Colors.white,
-  fontSize: 18.sp,
-  fontWeight: FontWeight.bold);
+  fontSize: 16.sp,
+  fontWeight: FontWeight.w600);
 
  static var constColorTextButton = GoogleFonts.poppins(
      color: Colors.white,
@@ -77,9 +77,9 @@ class ConstTextStyle{
 
 
   static var profileListTile =  GoogleFonts.poppins(
-      fontSize: 15.5.sp,
+      fontSize: 16.sp,
       fontWeight: FontWeight.w500,
-      color: Colors.white
+      color: Colors.black
   );
 
 

@@ -1,15 +1,26 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/smart_management.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:night_eats/UI/screens/auth_screens/login_screen.dart';
-import 'package:night_eats/UI/screens/home_screens/admin_home_screen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'core/utils/main_method.dart';
+import 'features/admin/main_admin/presentation/pages/admin_home_screen.dart';
+import 'features/auth/presentation/pages/login_screen.dart';
+import 'features/client/presentation/pages/client_home_screen.dart';
+import 'features/delivery/presentation/pages/delivery_home_screen.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 
 Future<void> main() async {
   await MainMethod.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -27,7 +38,12 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const AdminHomeScreen());
+            home:
+            // const LoginScreen()
+            // const AdminHomeScreen()
+                const DeliveryHomeScreen()
+            // ClientHomeScreen()
+        );
       },
     );
   }
