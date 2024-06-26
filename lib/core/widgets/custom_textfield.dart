@@ -49,50 +49,50 @@ class CustomTextField extends StatelessWidget {
           SizedBox(
             height: 0.5.h,
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: ConstColors.orangeColor,
-                borderRadius: BorderRadius.circular(4.w)
-            ),
-            height: 7.h,
-            child: TextFormField(
-              maxLength: maxLength,
-              validator: validator,
-              keyboardType: textInputType,
-              obscureText: obscureText,
-              controller: controller,
-              style:  TextStyle(color: Colors.white,decoration: TextDecoration.none,fontSize: 17.sp),
-              decoration: InputDecoration(
-                  errorStyle:  TextStyle(color: Colors.white,fontSize: 17.sp),
-                  labelStyle: TextStyle(color: Colors.white,fontSize: 17.sp),
-                  hintStyle: TextStyle(color: Colors.white,fontSize: 17.sp),
-                  suffix: suffixButton,
-                  hintText: hintText,
-                  prefixIcon: prefix,
-                  suffixIcon: suffix,
-                  contentPadding: EdgeInsets.symmetric(vertical: 1.6.h, horizontal: 5.w),
-                  // enabledBorder: OutlineInputBorder(
-                  //   borderRadius: BorderRadius.circular(3.w),
-                  //   borderSide:  const BorderSide(
-                  //     color: Colors.black,
-                  //   ),
-                  // ),
-                  border: InputBorder.none
-                // focusedBorder: OutlineInputBorder(
-                //   borderSide: const BorderSide(
-                //       color: Colors.black
-                //   ),
+          TextFormField(
+            maxLength: maxLength,
+            validator: validator,
+            keyboardType: textInputType,
+            obscureText: obscureText,
+            controller: controller,
+            style:  TextStyle(color: Colors.white,decoration: TextDecoration.none,fontSize: 14.sp),
+            decoration: InputDecoration(
+                errorStyle:  TextStyle(color: Colors.redAccent,fontSize: 14.sp),
+                labelStyle: TextStyle(color: Colors.white,fontSize: 14.sp),
+                hintStyle: TextStyle(color: Colors.white,fontSize: 14.sp),
+                suffix: suffixButton,
+                hintText: hintText,
+                prefixIcon: prefix,
+                suffixIcon: suffix,
+                contentPadding: EdgeInsets.symmetric(vertical: 1.6.h, horizontal: 5.w),
+                // enabledBorder: OutlineInputBorder(
                 //   borderRadius: BorderRadius.circular(3.w),
+                //   borderSide:  const BorderSide(
+                //     color: Colors.black,
+                //   ),
                 // ),
-              ),
+              focusedBorder: buildOutlineInputBorder(),
+              border: buildOutlineInputBorder(),
+              enabledBorder: buildOutlineInputBorder(),
+              errorBorder: buildOutlineInputBorder(isRed: true),
+              focusedErrorBorder: buildOutlineInputBorder(isRed: true),
+              disabledBorder: buildOutlineInputBorder(),
+              fillColor: ConstColors.orangeColor,
+              filled: true
             ),
-          ),
-
-          SizedBox(
-            height: 1.h,
           ),
         ],
       ),
     );
+  }
+
+  OutlineInputBorder buildOutlineInputBorder({bool isRed=false}) {
+    return OutlineInputBorder(
+                borderSide:  BorderSide(
+                    color:isRed?Colors.redAccent: ConstColors.orangeColor,
+                  style:isRed?BorderStyle.none: BorderStyle.solid
+                ),
+                borderRadius: BorderRadius.circular(4.w),
+              );
   }
 }

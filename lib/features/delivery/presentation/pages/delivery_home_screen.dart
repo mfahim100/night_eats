@@ -10,7 +10,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../core/constants/const_colors.dart';
 import '../../../../core/controllers/home_controller.dart';
 import '../../../../core/utils/injections.dart';
-import '../../../admin/main_admin/presentation/pages/admin_tabs/profile_tab.dart';
+import '../../../auth/presentation/pages/profile_tab.dart';
 
 
 class DeliveryHomeScreen extends StatefulWidget {
@@ -102,7 +102,7 @@ class _DeliveryHomeScreenState extends State<DeliveryHomeScreen>with TickerProvi
     return Obx(() => Scaffold(
       body: controller.adminHomeTabIndex.value == 0
           ?   DeliveryAppOrderScreen()
-           : const ProfileTab(),
+           :  ProfileTab(),
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         height: 8.h,
         itemCount: iconList.length,
@@ -211,7 +211,7 @@ class _NavigationScreenState extends State<NavigationScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).colorScheme.background,
+      color: Theme.of(context).colorScheme.surface,
       child: ListView(
         children: [
           const SizedBox(height: 64),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import 'const_colors.dart';
 
 class ConstTextStyle{
@@ -70,17 +69,39 @@ class ConstTextStyle{
 
 
   static var profileButton =  GoogleFonts.poppins(
-      fontSize: 18.sp,
-      fontWeight: FontWeight.bold,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w600,
       color: Colors.white
   );
 
 
   static var profileListTile =  GoogleFonts.poppins(
-      fontSize: 16.sp,
+      fontSize: 14.sp,
       fontWeight: FontWeight.w500,
       color: Colors.black
   );
+
+
+  static var forgotPassword = GoogleFonts.poppins(
+      fontWeight: FontWeight.bold,
+      // color: Colors.bl,
+      fontSize: 22.sp,
+      decoration: TextDecoration.none
+  );
+
+  static var forgotPasswordText = GoogleFonts.poppins(
+    // fontWeight: FontWeight.bold,
+    //   color: Colors.white,
+      fontSize: 16.sp,
+      decoration: TextDecoration.none
+  );
+
+  static var noOrdersText =GoogleFonts.poppins(
+      fontSize: 18.sp,
+      fontWeight: FontWeight.w700,
+      color: Colors.black);
+
+
 
 
 }

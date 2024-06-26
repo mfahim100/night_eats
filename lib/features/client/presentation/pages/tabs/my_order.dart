@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../core/constants/const_colors.dart';
-import '../../../../admin/main_admin/presentation/pages/admin_tabs/order_screen_all_screen/delivered_orders.dart';
-import '../../../../admin/main_admin/presentation/pages/admin_tabs/order_screen_all_screen/on_the_way_order.dart';
-import '../../../../admin/main_admin/presentation/pages/admin_tabs/order_screen_all_screen/rejected_order.dart';
+
+import 'client_order_slides/client_delivered_orders.dart';
+import 'client_order_slides/client_on_the_way_order.dart';
+import 'client_order_slides/client_rejected_order.dart';
 
 
 class MyOrderScreen extends StatelessWidget {
@@ -102,13 +103,13 @@ class MyOrderScreen extends StatelessWidget {
               child:  PageView(
                 controller: _controller,
                 children:  [
-                  OnTheWayOrders(
+                  ClientOnTheWayOrder(
                     listViewBuilderHeight: 77.h,
                   ),
-                  RejectedOrder(
+                  ClientRejectedOrder(
                     listViewBuilderHeight: 77.h,
                   ),
-                  DeliveredOrders(
+                  ClientDeliveredOrders(
                     listViewBuilderHeight: 77.h,
                   )
                 ],

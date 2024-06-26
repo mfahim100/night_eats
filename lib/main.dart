@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_core/src/smart_management.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -15,8 +16,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
   await MainMethod.init();
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -39,10 +38,11 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
             ),
             home:
-            // const LoginScreen()
-            // const AdminHomeScreen()
-                const DeliveryHomeScreen()
-            // ClientHomeScreen()
+             const LoginScreen(),
+            // const AdminHomeScreen(),
+            //     const DeliveryHomeScreen(),
+          // ClientHomeScreen(),
+          builder: EasyLoading.init(),
         );
       },
     );

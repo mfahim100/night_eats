@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520534943213",
+    "project_id": "night-eats-f0115",
+    "storage_bucket": "night-eats-f0115.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520534943213:android:cb9f31cc4c25d9eee933e4",
+        "android_client_info": {
+          "package_name": "com.kamisofts.night_eats"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxrs2MMsFVmvqp4aiCOfI8wze4okyB0MA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

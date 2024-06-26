@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../../../../core/constants/const_colors.dart';
 import '../../../../../core/controllers/home_controller.dart';
 import '../../../../../core/utils/injections.dart';
 import 'admin_tabs/admin_home_tab.dart';
 import 'admin_tabs/admin_order_screen.dart';
-import 'admin_tabs/profile_tab.dart';
+import 'admin_tabs/order_screen_all_screen/admin_profile_tab.dart';
 
 
 class AdminHomeScreen extends StatefulWidget {
@@ -109,7 +108,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> with TickerProviderSt
           ?  AdminHomeTab()
           : controller.adminHomeTabIndex.value == 1
           ?    AdminOrderScreen()
-          : const ProfileTab(),
+          :  AdminProfileTab(),
       bottomNavigationBar: AnimatedBottomNavigationBar.builder(
         height: 8.h,
         itemCount: iconList.length,

@@ -67,6 +67,14 @@ class DescriptionTextField extends StatelessWidget {
               prefixIcon: prefix,
               suffixIcon: suffix,
               contentPadding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 05.w),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(07.w),
+                borderSide: BorderSide(
+                  width: 1.w,
+                  color: ConstColors.orangeColor,
+                ),
+                
+              ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(7.w),
                 borderSide:   BorderSide(
@@ -84,7 +92,7 @@ class DescriptionTextField extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                 borderSide:  BorderSide(
                     color:  ConstColors.orangeColor,
-                  width: 2.w,
+                  width: 1.w,
                 ),
                 borderRadius: BorderRadius.circular(7.w),
               ),

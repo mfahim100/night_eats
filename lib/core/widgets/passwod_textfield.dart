@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:night_eats/core/constants/const_text_styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../constants/const_colors.dart';
@@ -50,62 +50,45 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
             alignment: Alignment.topLeft,
             child: Text(
               widget.text,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  fontSize: 18.sp,
-                  decoration: TextDecoration.none),
-            ),
+              style: ConstTextStyle.titleTextStyle,)
           ),
           SizedBox(
             height: 0.5.h,
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: ConstColors.orangeColor,
-                borderRadius: BorderRadius.circular(4.w)
-            ),
-            height: 7.h,
-            child: TextFormField(
-              validator: widget.validator,
-              obscureText: pass,
-              controller: widget.controller,
-              keyboardType: widget.textInputType,
-              onChanged: widget.onChange,
-              onSaved: widget.onSave,
-              style:  TextStyle(color: Colors.white,decoration: TextDecoration.none,fontSize: 17.sp),
-              decoration: InputDecoration(
-                errorStyle:  TextStyle(color: Colors.white,fontSize: 17.sp),
-                labelStyle: TextStyle(color: Colors.white,fontSize: 17.sp),
-                hintStyle: TextStyle(color: Colors.white,fontSize: 17.sp),
-                suffixIcon: widget.isPass
-                    ? GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      pass = !pass;
-                    });
-                  },
-                  child: pass
-                      ? const Icon(Icons.visibility_off_outlined,color: Colors.white,)
-                      : const Icon(Icons.visibility_outlined,color: Colors.white,),
-                )
-                    : null,
-                hintText: widget.hintText,
-                contentPadding: EdgeInsets.symmetric(vertical: 1.6.h, horizontal: 5.w),
-                  border: InputBorder.none
-                // border: OutlineInputBorder(
-                //   borderSide: const BorderSide(
-                //       color: Colors.white
-                //   ),
-                //   borderRadius: BorderRadius.circular(3.w),
-                // ),
-                // focusedBorder: OutlineInputBorder(
-                //   borderSide: const BorderSide(
-                //       color: Colors.white
-                //   ),
-                //   borderRadius: BorderRadius.circular(3.w),
-                // ),
-              ),
+          TextFormField(
+            validator: widget.validator,
+            obscureText: pass,
+            controller: widget.controller,
+            keyboardType: widget.textInputType,
+            onChanged: widget.onChange,
+            onSaved: widget.onSave,
+            style:  TextStyle(color: Colors.white,decoration: TextDecoration.none,fontSize: 14.sp),
+            decoration: InputDecoration(
+              errorStyle:  TextStyle(color: Colors.redAccent,fontSize: 14.sp),
+              labelStyle: TextStyle(color: Colors.white,fontSize: 14.sp),
+              hintStyle: TextStyle(color: Colors.white,fontSize: 14.sp),
+              suffixIcon: widget.isPass
+                  ? GestureDetector(
+                onTap: () {
+                  setState(() {
+                    pass = !pass;
+                  });
+                },
+                child: pass
+                    ? const Icon(Icons.visibility_off_outlined,color: Colors.white,)
+                    : const Icon(Icons.visibility_outlined,color: Colors.white,),
+              )
+                  : null,
+              hintText: widget.hintText,
+              contentPadding: EdgeInsets.symmetric(vertical: 1.6.h, horizontal: 5.w),
+                focusedBorder: buildOutlineInputBorder(),
+                border: buildOutlineInputBorder(),
+                enabledBorder: buildOutlineInputBorder(),
+                errorBorder: buildOutlineInputBorder(isRed: true),
+                focusedErrorBorder: buildOutlineInputBorder(isRed: true),
+                disabledBorder: buildOutlineInputBorder(),
+                fillColor: ConstColors.orangeColor,
+                filled: true
             ),
           ),
 
@@ -116,4 +99,16 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
       ),
     );
   }
+}
+
+
+
+OutlineInputBorder buildOutlineInputBorder({bool isRed=false}) {
+  return OutlineInputBorder(
+    borderSide:  BorderSide(
+        color:isRed?Colors.redAccent: ConstColors.orangeColor,
+        style:isRed?BorderStyle.none: BorderStyle.solid
+    ),
+    borderRadius: BorderRadius.circular(4.w),
+  );
 }

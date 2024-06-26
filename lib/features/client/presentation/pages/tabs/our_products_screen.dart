@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:night_eats/features/client/presentation/manager/client_controller.dart';
 import 'package:night_eats/features/client/presentation/widgets/our_product_container.dart';
-import 'package:night_eats/features/client/presentation/widgets/our_product_container_two.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../../../../core/constants/const_colors.dart';
+import '../../../../../core/utils/injections.dart';
 
 class OurProductsScreen extends StatelessWidget {
-  const OurProductsScreen({super.key});
+   OurProductsScreen({super.key});
+
+  final controller = sl<ClientController>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Obx(()=>controller.isResultLoaded.value ?
+        const Center(child: CircularProgressIndicator())
+    :
+        Scaffold(
       body: SafeArea(
         child: SizedBox(
           height: 100.h,
@@ -45,13 +51,13 @@ class OurProductsScreen extends StatelessWidget {
 
                 SizedBox(height: 1.h,),
 
-              const OurProductContainer(text: 'REPAS', image: 'assets/images/repas.png'),
+                const OurProductContainer(text: 'REPAS', image: 'assets/images/repas.png'),
 
                 SizedBox(height: 1.h,),
-               const OurProductContainerTwo(),
+                // const OurProductContainerTwo(itemModel: null,),
 
                 SizedBox(height: 1.h,),
-                
+
                 const OurProductContainer(text: 'DESSERTS', image: 'assets/images/desserts.png'),
                 SizedBox(height: 1.h,),
                 const OurProductContainer(text: 'BOISSONS', image: 'assets/images/boissons.png')
@@ -67,6 +73,7 @@ class OurProductsScreen extends StatelessWidget {
           ),
         ),
       ),
+    )
     );
   }
 }

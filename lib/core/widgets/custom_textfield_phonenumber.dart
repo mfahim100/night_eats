@@ -1,3 +1,4 @@
+import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -28,7 +29,8 @@ class CustomTextFieldPhoneNumber extends StatelessWidget {
       this.suffix,
       this.maxLength,
        this.isPass=false,
-      this.validator});
+      this.validator,
+      this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -46,34 +48,57 @@ class CustomTextFieldPhoneNumber extends StatelessWidget {
           SizedBox(
             height: 0.5.h,
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: ConstColors.orangeColor,
-                borderRadius: BorderRadius.circular(4.w)),
-            height: 7.h,
-            width: 80.w,
+          SizedBox(
+            height: 6.2.h,
             child: Row(
               children: [
 
-                SizedBox(width: 3.w,),
                 Container(
-                  height: 5.h,
-                  width: 20.w,
+                  height: 6.2.h,
+                  width: 24.w,
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(5.w)
+                      color: ConstColors.orangeColor,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(04.w),
+                        bottomLeft: Radius.circular(04.w),
+                      )
                   ),
-                  child: Center(
-                    child: Text('+92 ',style: GoogleFonts.poppins(
-                      color:ConstColors.orangeColor,
-                      fontSize:18.sp
-                    ),),
+                  child: Row(
+                    children: [
+
+                      SizedBox(width: 3.w,),
+
+                      Container(
+                        height: 5.6.h,
+                        width: 20.w,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(5.w)
+                        ),
+                        child:  CountryCodePicker(
+                          onChanged: print,
+                          // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                          initialSelection: 'IT',
+                          searchStyle: const TextStyle(color: Colors.black,),
+                          textStyle: GoogleFonts.poppins(color: Colors.black,fontSize: 14.sp),
+                          dialogTextStyle: const TextStyle(color: Colors.black),
+                          favorite: const ['+92','PAK'],
+                          // optional. Shows only country name and flag
+                          showCountryOnly: false,
+                          // optional. Shows only country name and flag when popup is closed.
+                          showOnlyCountryWhenClosed: false,
+                          showFlag: false,
+                          // optional. aligns the flag and the Text left
+                          // alignLeft: false,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
 
+
                 SizedBox(
-                  height: 7.h,
-                  width: 55.w,
+                  width: 56.w,
                   child: TextFormField(
                     maxLength: maxLength,
                     validator: validator,
@@ -83,41 +108,50 @@ class CustomTextFieldPhoneNumber extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         decoration: TextDecoration.none,
-                        fontSize: 17.sp),
+                        fontSize: 14.sp),
                     decoration: InputDecoration(
-                        errorStyle: TextStyle(color: Colors.white, fontSize: 17.sp),
-                        labelStyle: TextStyle(color: Colors.white, fontSize: 17.sp),
-                        hintStyle: TextStyle(color: Colors.white, fontSize: 17.sp),
+                        errorStyle:  TextStyle(color: Colors.redAccent,fontSize: 14.sp),
+                        labelStyle: TextStyle(color: Colors.white,fontSize: 14.sp),
+                        hintStyle: TextStyle(color: Colors.white,fontSize: 14.sp),
                         suffix: suffixButton,
                         hintText: hintText,
                         prefixIcon: prefix,
                         suffixIcon: suffix,
                         contentPadding:
                             EdgeInsets.symmetric(vertical: 1.6.h, horizontal: 5.w),
-                        // enabledBorder: OutlineInputBorder(
-                        //   borderRadius: BorderRadius.circular(3.w),
-                        //   borderSide:  const BorderSide(
-                        //     color: Colors.black,
-                        //   ),
-                        // ),
-                        border: InputBorder.none
-                        // focusedBorder: OutlineInputBorder(
-                        //   borderSide: const BorderSide(
-                        //       color: Colors.black
-                        //   ),
-                        //   borderRadius: BorderRadius.circular(3.w),
-                        // ),
+                        focusedBorder: buildOutlineInputBorder(),
+                        border: buildOutlineInputBorder(),
+                        enabledBorder: buildOutlineInputBorder(),
+                        errorBorder: buildOutlineInputBorder(isRed: true),
+                        focusedErrorBorder: buildOutlineInputBorder(isRed: true),
+                        disabledBorder: buildOutlineInputBorder(),
+                        fillColor: ConstColors.orangeColor,
+                        filled: true
+
                         ),
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(
-            height: 1.h,
-          ),
         ],
       ),
     );
   }
+}
+
+
+
+
+OutlineInputBorder buildOutlineInputBorder({bool isRed=false}) {
+  return OutlineInputBorder(
+    borderSide:  BorderSide(
+        color:isRed?Colors.redAccent: ConstColors.orangeColor,
+        style:isRed?BorderStyle.none: BorderStyle.solid
+    ),
+    borderRadius: BorderRadius.only(
+      topRight: Radius.circular(04.w),
+      bottomRight: Radius.circular(04.w),
+    ),
+  );
 }

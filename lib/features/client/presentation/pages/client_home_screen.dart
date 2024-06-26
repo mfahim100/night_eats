@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:night_eats/features/client/presentation/pages/tabs/cart_screen.dart';
+import 'package:night_eats/features/client/presentation/pages/tabs/client_profile_tab.dart';
 import 'package:night_eats/features/client/presentation/pages/tabs/condition_and_terms.dart';
 import 'package:night_eats/features/client/presentation/pages/tabs/contact_us_screen.dart';
 import 'package:night_eats/features/client/presentation/pages/tabs/map_screen.dart';
@@ -64,21 +66,23 @@ class ClientHomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Obx(
-              () => controller.tabIndex.value == 0
-                  ? const OrderScreen()
-                  : controller.tabIndex.value == 1
-                      ? const NosProducts()
-                      : controller.tabIndex.value == 2
-                          ?  MyOrderScreen()
-                          : controller.tabIndex.value == 3
-                              ? const ContactUsScreen()
-                              : controller.tabIndex.value == 4
-                                  ? const ConditionAndTerms()
-                                  : controller.tabIndex.value == 5
-                                      ? const MapScreen()
-                                      : const OrderScreen(),
-            ),
+            Obx(() => controller.tabIndex.value == 0
+                ? OrderScreen()
+                : controller.tabIndex.value == 1
+                    ? NosProducts()
+                    : controller.tabIndex.value == 2
+                        ? CartScreen()
+                        : controller.tabIndex.value == 3
+                            ? MyOrderScreen()
+                            : controller.tabIndex.value == 4
+                                ? const ConditionAndTerms()
+                                : controller.tabIndex.value == 5
+                                    ? const MapScreen()
+                                    : controller.tabIndex.value == 6
+                                        ? const MapScreen()
+                                        : controller.tabIndex.value == 7
+                                            ?  ContactUsScreen()
+                                            : ClientProfileTab()),
           ],
         ),
       ),

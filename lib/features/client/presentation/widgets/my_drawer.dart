@@ -50,7 +50,7 @@ class MyDrawer extends StatelessWidget {
               ],
             ),
           ),
-         SizedBox(height: 27.h,),
+         SizedBox(height: 10.h,),
           ListTile(
             onTap: ()=>sl<HomeController>().setTabIndex(0),
             title: Text("Home ",style: ConstTextStyle.titleTextStyle,),
@@ -63,13 +63,13 @@ class MyDrawer extends StatelessWidget {
           SizedBox(height: 1.h,),
           ListTile(
             onTap: ()=>sl<HomeController>().setTabIndex(2),
-            title: Text("My Order",style: ConstTextStyle.titleTextStyle,),
+            title: Text("My Cart",style: ConstTextStyle.titleTextStyle,),
           ),
 
           SizedBox(height: 1.h,),
           ListTile(
             onTap: ()=>sl<HomeController>().setTabIndex(3),
-            title: Text("Contact",style: ConstTextStyle.titleTextStyle,),
+            title: Text("My Order",style: ConstTextStyle.titleTextStyle,),
           ),
 
           SizedBox(height: 1.h,),
@@ -80,11 +80,23 @@ class MyDrawer extends StatelessWidget {
           ListTile(
             onTap: ()=>sl<HomeController>().setTabIndex(5),
             title: Text("Deconnexion",style: ConstTextStyle.titleTextStyle,),
-          ),SizedBox(height: 1.h,),
+          ),
+          SizedBox(height: 1.h,),
           ListTile(
             onTap: ()=>sl<HomeController>().setTabIndex(6),
             title: Text("Map",style: ConstTextStyle.titleTextStyle,),
           ),
+          SizedBox(height: 1.h,),
+          ListTile(
+            onTap: ()=>sl<HomeController>().setTabIndex(7),
+            title: Text("Contact Us",style: ConstTextStyle.titleTextStyle,),
+          ),
+          SizedBox(height: 1.h,),
+          ListTile(
+            onTap: ()=>sl<HomeController>().setTabIndex(8),
+            title: Text("Profile",style: ConstTextStyle.titleTextStyle,),
+          ),
+
         ],
       ),
       // ),
